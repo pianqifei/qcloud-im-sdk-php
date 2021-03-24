@@ -16,7 +16,25 @@ use QcloudIM\Traits\HttpClientTrait;
 class Group
 {
     use HttpClientTrait;
-
+    /**
+     * 获取 App 中的所有群组
+     *
+     * @param array $filter
+     *
+     * @return array
+     */
+    public function all_group($filter = []): array
+    {
+        if($filter){
+            $r = $this->httpClient->postJson('group_open_http_svc/get_appid_group_list', $filter);
+        }else{
+            $r = $this->httpClient->postJson('group_open_http_svc/get_appid_group_list');
+        }
+        if ($r['ErrorCode'] !== 0) {
+            throw new \InvalidArgumentException($r['ErrorInfo'], $r['ErrorCode']);
+        }
+        return $r;
+    }
     /**
      * 创建群组
      *
