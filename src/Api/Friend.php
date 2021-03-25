@@ -90,6 +90,33 @@ class Friend
         empty($CustomSequence) or $p['CustomSequence'] = $CustomSequence;
         return $this->httpClient->postJson('sns/friend_get', $p);
     }
+    /**
+     * 拉取指定好友
+     *
+     * @param string $fromAccountId     指定要拉取好友数据的用户的 UserID
+     * @param string    $ToccountId       好友的 UserID
+     * @param array    $TagList 指定要拉取的资料字段及好友字段
+     *
+     * @return array
+     */
+    public function friend_get_list(
+        string $fromAccountId,
+        string $To_Account,
+        array $TagList=[]
+    ): array {
+        $p = [
+            'From_Account' => $fromAccountId,
+            'To_Account'=>[$To_Account],
+            'TagList' => $TagList?$TagList:[
+                "Tag_Profile_IM_Nick",
+                "Tag_Profile_IM_Image",
+                "Tag_SNS_IM_Remark",
+                "Tag_SNS_IM_AddSource",
+                "Tag_SNS_IM_AddWording",
+                "Tag_SNS_IM_Group"]
+        ];
+        return $this->httpClient->postJson('sns/friend_get', $p);
+    }
 
     /**
      * 删除好友
