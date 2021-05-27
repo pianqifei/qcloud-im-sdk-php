@@ -47,7 +47,7 @@ class ChatMessage
                 unset($p[$k]);
             }
         }
-        $r = $this->httpClient->postJson('openim/sendmsg', (array)$item);
+        $r = $this->httpClient->postJson('openim/sendmsg', $p);
         return $r;
     }
 
