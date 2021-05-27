@@ -43,6 +43,11 @@ class ChatMessage
         }
         $p = ['To_Account' => $toAccountIds] + (array)$item;
         $r = $this->httpClient->postJson('openim/sendmsg', (array)$item);
+        foreach ($p as $k=>$v){
+            if (is_null($v)){
+                unset($p[$k]);
+            }
+        }
         return $r;
     }
 
