@@ -115,7 +115,7 @@ class Friend
                 "Tag_SNS_IM_AddWording",
                 "Tag_SNS_IM_Group"]
         ];
-        return $this->httpClient->postJson('sns/friend_get', $p);
+        return $this->httpClient->postJson('sns/friend_get_list', $p);
     }
 
     /**
