@@ -133,6 +133,11 @@ class Constants
     const FRIEND_CHECKRESULT_TYPE_B_WITH_A = 'CheckResult_Type_BWithA';
     const FRIEND_CHECKRESULT_TYPE_BOTH_WAY = 'CheckResult_Type_BothWay';
 
+    /** @var string 单向校验黑名单关系 */
+    const BLACK_CHECK_TYPE_SIGNLE = 'BlackCheckResult_Type_Single';
+    /** @var string 双向校验黑名单关系 */
+    const BLACK_CHECK_TYPE_BOTH = 'BlackCheckResult_Type_Both';
+    
     /** @var string 黑名单关系结果 */
     const FRIEND_BLACKCHECKRESULT_TYPE_NO = 'BlackCheckResult_Type_NO';
     const FRIEND_BLACKCHECKRESULT_TYPE_A_WITH_B = 'BlackCheckResult_Type_AWithB';
